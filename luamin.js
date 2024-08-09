@@ -213,12 +213,12 @@
 		var result = '';
 		var type = base.type;
 		var needsParens = base.inParens && (
-			type == 'CallExpression' ||
-			type == 'BinaryExpression' ||
-			type == 'FunctionDeclaration' ||
-			type == 'TableConstructorExpression' ||
-			type == 'LogicalExpression' ||
-			type == 'StringLiteral'
+			type != 'Identifier' &&
+			type != 'IndexExpression' &&
+			type != 'MemberExpression' &&
+			type != 'CallExpression' &&
+			type != 'TableCallExpression' &&
+			type != 'StringCallExpression'
 		);
 		if (needsParens) {
 			result += '(';
@@ -353,12 +353,12 @@
 
 		} else if (expressionType == 'TableCallExpression') {
 
-			result = formatExpression(expression.base) +
+			result = formatBase(expression.base) +
 				formatExpression(expression.arguments);
 
 		} else if (expressionType == 'StringCallExpression') {
 
-			result = formatExpression(expression.base) +
+			result = formatBase(expression.base) +
 				formatExpression(expression.argument);
 
 		} else if (expressionType == 'IndexExpression') {

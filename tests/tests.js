@@ -723,7 +723,7 @@
 			{
 				'description': 'CallStatement',
 				'original': '(1)()',
-				'minified': '1()'
+				'minified': '(1)()'
 			},
 			{
 				'description': 'CallStatement',
@@ -733,7 +733,12 @@
 			{
 				'description': 'CallStatement',
 				'original': '(true)()',
-				'minified': 'true()'
+				'minified': '(true)()'
+			},
+			{
+				'description': 'CallStatement',
+				'original': '(((nil)"")"")',
+				'minified': '(nil)""""'
 			},
 			{
 				'description': 'CallStatement + CallExpression',
