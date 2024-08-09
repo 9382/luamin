@@ -736,11 +736,6 @@
 				'minified': '(true)()'
 			},
 			{
-				'description': 'CallStatement',
-				'original': '(((nil)"")"")',
-				'minified': '(nil)""""'
-			},
-			{
 				'description': 'CallStatement + CallExpression',
 				'original': '(a)()()',
 				'minified': 'a()()'
@@ -869,6 +864,11 @@
 				'description': 'CallStatement + StringCallExpression + StringCallExpression',
 				'original': 'a"foo""bar"',
 				'minified': 'a"foo""bar"'
+			},
+			{
+				'description': 'CallStatement + StringCallExpression + StringCallExpression',
+				'original': '(nil) "" ""',
+				'minified': '(nil)""""'
 			},
 			{
 				'description': 'CallStatement + StringCallExpression + TableCallExpression',

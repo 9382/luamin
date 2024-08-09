@@ -350,16 +350,25 @@
 				}
 			});
 			result += ')';
+			if (expression.inParens) {
+				result = '(' + result + ")";
+			}
 
 		} else if (expressionType == 'TableCallExpression') {
 
 			result = formatBase(expression.base) +
 				formatExpression(expression.arguments);
+			if (expression.inParens) {
+				result = '(' + result + ")";
+			}
 
 		} else if (expressionType == 'StringCallExpression') {
 
 			result = formatBase(expression.base) +
 				formatExpression(expression.argument);
+			if (expression.inParens) {
+				result = '(' + result + ")";
+			}
 
 		} else if (expressionType == 'IndexExpression') {
 
