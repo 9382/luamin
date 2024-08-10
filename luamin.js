@@ -171,6 +171,19 @@
 		if (lastCharA == '' || firstCharB == '') {
 			return a + b;
 		}
+		if (separator == ';' && firstCharB == '(') {
+			if (
+				regexAlphaNumUnderscore.test(lastCharA) || // Could be an Identifier or a NumberExpression, we don't know, best to be safe
+				lastCharA == ')' ||
+				lastCharA == '"' ||
+				lastCharA == "'" ||
+				lastCharA == '}' ||
+				lastCharA == ']'
+			) {
+				// e.g. `a=b` + `(c or d)(e)` as 2 different statements (; required)
+				return a + separator + b
+			}
+		}
 		if (regexAlphaUnderscore.test(lastCharA)) {
 			if (regexAlphaNumUnderscore.test(firstCharB)) {
 				// e.g. `while` + `1`

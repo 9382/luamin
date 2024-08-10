@@ -1340,6 +1340,11 @@
 				'description': 'LocalStatement',
 				'original': 'local function a() end; local function a() end;',
 				'minified': 'local function a()end;local function a()end'
+			},
+			{
+				'description': 'LocalStatement + CallExpression',
+				'original': 'a = b[1];(c or d)(e)',
+				'minified': 'a=b[1];(c or d)(e)'
 			}
 		],
 
